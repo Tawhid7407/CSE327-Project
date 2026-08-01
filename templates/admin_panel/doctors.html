@@ -28,11 +28,11 @@
                         </td>
                         <td>
                             {% if not u.is_approved %}
-                                <a href="{% url 'reports:approve_doctor' u.pk %}" class="btn btn-sm btn-success">Approve</a>
-                                <a href="{% url 'reports:reject_doctor' u.pk %}" class="btn btn-sm btn-danger"
+                                <a href="{% url 'authority:approve_doctor' u.pk %}" class="btn btn-sm btn-success">Approve</a>
+                                <a href="{% url 'authority:reject_doctor' u.pk %}" class="btn btn-sm btn-danger"
                                    onclick="return confirm('Reject and remove?')">Reject</a>
                             {% else %}
-                                <a href="{% url 'reports:delete_doctor' u.pk %}" class="btn btn-sm btn-outline-danger"
+                                <a href="{% url 'authority:delete_doctor' u.pk %}" class="btn btn-sm btn-outline-danger"
                                    onclick="return confirm('Delete this doctor?')">Delete</a>
                             {% endif %}
                         </td>

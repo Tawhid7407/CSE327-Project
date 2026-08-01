@@ -1,5 +1,5 @@
 Notifications Utils
 ====================
 
-.. automodule:: notifications.utils
+.. automodule:: core.utils
    :members:

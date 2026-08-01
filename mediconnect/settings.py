@@ -18,18 +18,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Local apps
-    'accounts',
-    'departments',
+    'core',
     'doctors',
     'patients',
-    'appointments',
-    'prescriptions',
-    'medical_history',
-    'reviews',
-    'notifications',
-    'feedback',
-    'reports',
-    'core',
+    'authority',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +47,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'notifications.context_processors.unread_notifications',
+                'core.context_processors.unread_notifications',
             ],
         },
     },
@@ -107,7 +99,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom User Model
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'core.User'
 
 # Auth redirects
 LOGIN_URL = '/accounts/login/'

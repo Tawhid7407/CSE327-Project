@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q, Count
-from accounts.decorators import doctor_required
+from core.decorators import doctor_required
 from .models import DoctorProfile, Availability
 from .forms import DoctorProfileForm, AvailabilityForm
-from appointments.models import Appointment
-from reviews.models import Review
+from core.models import Appointment, Review
 
 
 @doctor_required
@@ -88,7 +87,7 @@ def doctor_list(request):
     if dept_id:
         doctors = doctors.filter(department_id=dept_id)
 
-    from departments.models import Department
+    from core.models import Department
     departments = Department.objects.all()
     return render(request, 'patient/doctor_list.html', {
         'doctors': doctors,

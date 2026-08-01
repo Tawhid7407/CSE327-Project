@@ -7,17 +7,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
-    path('accounts/', include('accounts.urls')),
-    path('patient/', include('patients.urls')),
     path('doctor/', include('doctors.urls')),
-    path('appointments/', include('appointments.urls')),
-    path('prescriptions/', include('prescriptions.urls')),
-    path('reviews/', include('reviews.urls')),
-    path('notifications/', include('notifications.urls')),
-    path('feedback/', include('feedback.urls')),
-    path('admin-panel/', include('reports.urls')),
-    path('departments/', include('departments.urls')),
-    path('medical-history/', include('medical_history.urls')),
+    path('patient/', include('patients.urls')),
+    path('', include('authority.urls')),
 ]
 
 if settings.DEBUG:

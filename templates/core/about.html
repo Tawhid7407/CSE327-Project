@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}About - MediConnect{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="mb-4">About MediConnect</h1>
+            <p class="lead">MediConnect is a digital healthcare platform bridging the gap between patients and doctors.</p>
+            <p>Our mission is to simplify healthcare by providing an easy, transparent, and reliable way to book doctor appointments, manage prescriptions, and track medical history — all from one unified platform.</p>
+
+            <h4 class="mt-4">Our Services</h4>
+            <ul>
+                <li>Doctor discovery by department & specialization</li>
+                <li>Online appointment booking</li>
+                <li>Digital prescription management</li>
+                <li>Medical history tracking</li>
+                <li>Doctor reviews & ratings</li>
+            </ul>
+
+            <h4 class="mt-4">Contact Us</h4>
+            <p>Have questions? <a href="{% url 'feedback:contact' %}">Get in touch</a>.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

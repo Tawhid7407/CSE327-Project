@@ -11,7 +11,7 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'core:home' %}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'doctors:list' %}">Find Doctors</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'core:about' %}">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'core:contact' %}">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'feedback:contact' %}">Contact</a></li>
             </ul>
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}
@@ -29,7 +29,7 @@
                             {% for n in recent_notifications %}
                                 <li>
                                     <a class="dropdown-item small {% if not n.is_read %}fw-bold{% endif %}"
-                                       href="{% url 'core:mark_read' n.pk %}">
+                                       href="{% url 'notifications:mark_read' n.pk %}">
                                         {{ n.message|truncatechars:50 }}
                                         <br><small class="text-muted">{{ n.created_at|timesince }} ago</small>
                                     </a>
@@ -38,7 +38,7 @@
                                 <li><span class="dropdown-item small text-muted">No notifications</span></li>
                             {% endfor %}
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item small" href="{% url 'core:notification_list' %}">View all</a></li>
+                            <li><a class="dropdown-item small" href="{% url 'notifications:list' %}">View all</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -51,21 +51,21 @@
                             {{ user.first_name|default:user.username }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{% url 'core:role_redirect' %}">
+                            <li><a class="dropdown-item" href="{% url 'accounts:role_redirect' %}">
                                 <i class="bi bi-speedometer2"></i> Dashboard</a></li>
-                            <li><a class="dropdown-item" href="{% url 'core:profile' %}">
+                            <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">
                                 <i class="bi bi-person"></i> Profile</a></li>
-                            <li><a class="dropdown-item" href="{% url 'core:password_change' %}">
+                            <li><a class="dropdown-item" href="{% url 'accounts:password_change' %}">
                                 <i class="bi bi-key"></i> Change Password</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger" href="{% url 'core:logout' %}">
+                            <li><a class="dropdown-item text-danger" href="{% url 'accounts:logout' %}">
                                 <i class="bi bi-box-arrow-right"></i> Logout</a></li>
                         </ul>
                     </li>
                 {% else %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></li>
                     <li class="nav-item ms-2">
-                        <a class="btn btn-light btn-sm" href="{% url 'core:register' %}">Register</a>
+                        <a class="btn btn-light btn-sm" href="{% url 'accounts:register' %}">Register</a>
                     </li>
                 {% endif %}
             </ul>

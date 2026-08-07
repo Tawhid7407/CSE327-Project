@@ -14,3 +14,6 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = UserAdmin.add_fieldsets + (
         ('Additional Info', {'fields': ('role', 'phone', 'is_approved')}),
     )
+
+
+    

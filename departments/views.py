@@ -38,6 +38,9 @@ def department_edit(request, pk):
     return render(request, 'admin_panel/department_form.html', {'form': form, 'title': 'Edit Department'})
 
 
+
+
+
 @admin_required
 def department_delete(request, pk):
     dept = get_object_or_404(Department, pk=pk)

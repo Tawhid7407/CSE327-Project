@@ -8,6 +8,8 @@ class Department(models.Model):
                             help_text='Bootstrap icon class (e.g. bi-heart-pulse)')
     created_at = models.DateTimeField(auto_now_add=True)
 
+
+
     class Meta:
         ordering = ['name']
 

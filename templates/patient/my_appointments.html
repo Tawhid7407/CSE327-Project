@@ -19,14 +19,14 @@
                         <td><span class="badge bg-{{ a.status_badge }}">{{ a.get_status_display }}</span></td>
                         <td>
                             {% if a.status == 'completed' and a.prescription %}
-                                <a href="{% url 'core:view' a.prescription.pk %}" class="btn btn-sm btn-outline-success">View Rx</a>
+                                <a href="{% url 'prescriptions:view' a.prescription.pk %}" class="btn btn-sm btn-outline-success">View Rx</a>
                             {% endif %}
                             {% if a.status == 'pending' or a.status == 'approved' %}
-                                <a href="{% url 'core:cancel' a.pk %}" class="btn btn-sm btn-outline-danger"
+                                <a href="{% url 'appointments:cancel' a.pk %}" class="btn btn-sm btn-outline-danger"
                                    onclick="return confirm('Cancel this appointment?')">Cancel</a>
                             {% endif %}
                             {% if a.status == 'completed' %}
-                                <a href="{% url 'core:submit' a.doctor.pk %}" class="btn btn-sm btn-outline-warning">Review</a>
+                                <a href="{% url 'reviews:submit' a.doctor.pk %}" class="btn btn-sm btn-outline-warning">Review</a>
                             {% endif %}
                         </td>
                     </tr>

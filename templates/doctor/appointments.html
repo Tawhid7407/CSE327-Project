@@ -27,15 +27,15 @@
                         <td><span class="badge bg-{{ a.status_badge }}">{{ a.get_status_display }}</span></td>
                         <td>
                             {% if a.status == 'pending' %}
-                                <a href="{% url 'core:action' a.pk 'approve' %}" class="btn btn-sm btn-success">Approve</a>
-                                <a href="{% url 'core:action' a.pk 'reject' %}" class="btn btn-sm btn-danger">Reject</a>
+                                <a href="{% url 'appointments:action' a.pk 'approve' %}" class="btn btn-sm btn-success">Approve</a>
+                                <a href="{% url 'appointments:action' a.pk 'reject' %}" class="btn btn-sm btn-danger">Reject</a>
                             {% elif a.status == 'approved' %}
-                                <a href="{% url 'core:action' a.pk 'complete' %}" class="btn btn-sm btn-primary">Mark Complete</a>
+                                <a href="{% url 'appointments:action' a.pk 'complete' %}" class="btn btn-sm btn-primary">Mark Complete</a>
                             {% elif a.status == 'completed' %}
                                 {% if a.prescription %}
-                                    <a href="{% url 'core:view' a.prescription.pk %}" class="btn btn-sm btn-outline-success">View Rx</a>
+                                    <a href="{% url 'prescriptions:view' a.prescription.pk %}" class="btn btn-sm btn-outline-success">View Rx</a>
                                 {% else %}
-                                    <a href="{% url 'core:prescription_create' a.pk %}" class="btn btn-sm btn-warning">Write Rx</a>
+                                    <a href="{% url 'prescriptions:create' a.pk %}" class="btn btn-sm btn-warning">Write Rx</a>
                                 {% endif %}
                             {% endif %}
                         </td>

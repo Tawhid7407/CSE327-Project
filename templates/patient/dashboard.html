@@ -54,9 +54,9 @@
 
     <!-- Quick actions -->
     <div class="row g-3 mb-4">
-        <div class="col-md-3"><a href="{% url 'core:my_appointments' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-calendar-check"></i> My Appointments</a></div>
-        <div class="col-md-3"><a href="{% url 'core:my' %}" class="btn btn-outline-success w-100 py-3"><i class="bi bi-file-medical"></i> Prescriptions</a></div>
-        <div class="col-md-3"><a href="{% url 'core:medical_history_list' %}" class="btn btn-outline-info w-100 py-3"><i class="bi bi-clipboard2-pulse"></i> Medical History</a></div>
+        <div class="col-md-3"><a href="{% url 'appointments:my_appointments' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-calendar-check"></i> My Appointments</a></div>
+        <div class="col-md-3"><a href="{% url 'prescriptions:my' %}" class="btn btn-outline-success w-100 py-3"><i class="bi bi-file-medical"></i> Prescriptions</a></div>
+        <div class="col-md-3"><a href="{% url 'medical_history:list' %}" class="btn btn-outline-info w-100 py-3"><i class="bi bi-clipboard2-pulse"></i> Medical History</a></div>
         <div class="col-md-3"><a href="{% url 'patients:edit_profile' %}" class="btn btn-outline-secondary w-100 py-3"><i class="bi bi-person-gear"></i> Edit Profile</a></div>
     </div>
 

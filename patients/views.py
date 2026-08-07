@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from core.decorators import patient_required
+from accounts.decorators import patient_required
 from .forms import PatientProfileForm
-from core.models import Appointment, Prescription
+from appointments.models import Appointment
+from prescriptions.models import Prescription
 
 
 @patient_required

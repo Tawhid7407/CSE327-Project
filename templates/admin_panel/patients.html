@@ -16,7 +16,7 @@
                         <td>{{ u.phone|default:"—" }}</td>
                         <td>{{ u.created_at|date:"M d, Y" }}</td>
                         <td>
-                            <a href="{% url 'authority:delete_patient' u.pk %}" class="btn btn-sm btn-outline-danger"
+                            <a href="{% url 'reports:delete_patient' u.pk %}" class="btn btn-sm btn-outline-danger"
                                onclick="return confirm('Delete this patient?')">Delete</a>
                         </td>
                     </tr>

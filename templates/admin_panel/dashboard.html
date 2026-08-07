@@ -81,13 +81,13 @@
 
     <!-- Quick actions -->
     <div class="row g-3 mb-4">
-        <div class="col-md-3"><a href="{% url 'authority:doctor_management' %}?status=pending" class="btn btn-warning w-100 py-3"><i class="bi bi-person-exclamation"></i> Approve Doctors ({{ pending_doctors }})</a></div>
-        <div class="col-md-3"><a href="{% url 'authority:department_list' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-hospital"></i> Departments</a></div>
-        <div class="col-md-3"><a href="{% url 'core:all' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-calendar"></i> All Appointments</a></div>
-        <div class="col-md-3"><a href="{% url 'authority:reports' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-graph-up"></i> Reports</a></div>
-        <div class="col-md-3"><a href="{% url 'authority:doctor_management' %}" class="btn btn-outline-secondary w-100 py-3"><i class="bi bi-person-badge"></i> Doctors</a></div>
-        <div class="col-md-3"><a href="{% url 'authority:patient_management' %}" class="btn btn-outline-secondary w-100 py-3"><i class="bi bi-people"></i> Patients</a></div>
-        <div class="col-md-3"><a href="{% url 'authority:feedback_list' %}" class="btn btn-outline-secondary w-100 py-3"><i class="bi bi-envelope"></i> Feedback</a></div>
+        <div class="col-md-3"><a href="{% url 'reports:doctor_management' %}?status=pending" class="btn btn-warning w-100 py-3"><i class="bi bi-person-exclamation"></i> Approve Doctors ({{ pending_doctors }})</a></div>
+        <div class="col-md-3"><a href="{% url 'departments:list' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-hospital"></i> Departments</a></div>
+        <div class="col-md-3"><a href="{% url 'appointments:all' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-calendar"></i> All Appointments</a></div>
+        <div class="col-md-3"><a href="{% url 'reports:reports' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-graph-up"></i> Reports</a></div>
+        <div class="col-md-3"><a href="{% url 'reports:doctor_management' %}" class="btn btn-outline-secondary w-100 py-3"><i class="bi bi-person-badge"></i> Doctors</a></div>
+        <div class="col-md-3"><a href="{% url 'reports:patient_management' %}" class="btn btn-outline-secondary w-100 py-3"><i class="bi bi-people"></i> Patients</a></div>
+        <div class="col-md-3"><a href="{% url 'feedback:list' %}" class="btn btn-outline-secondary w-100 py-3"><i class="bi bi-envelope"></i> Feedback</a></div>
         <div class="col-md-3"><a href="/admin/" class="btn btn-outline-dark w-100 py-3"><i class="bi bi-gear"></i> Django Admin</a></div>
     </div>
 

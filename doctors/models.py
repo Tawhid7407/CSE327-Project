@@ -1,11 +1,11 @@
 from django.db import models
 from django.conf import settings
+from departments.models import Department
 
 
 class DoctorProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='doctor_profile')
-    # String FK avoids a circular import: core.models needs DoctorProfile too.
-    department = models.ForeignKey('core.Department', on_delete=models.SET_NULL, null=True, blank=True)
+    department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True, blank=True)
     specialization = models.CharField(max_length=200, blank=True)
     qualification = models.CharField(max_length=200, blank=True)
     experience_years = models.PositiveIntegerField(default=0)

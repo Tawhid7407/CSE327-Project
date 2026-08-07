@@ -4,7 +4,7 @@
 <div class="container py-4">
     <div class="d-flex justify-content-between mb-3">
         <h3><i class="bi bi-clipboard2-pulse"></i> Medical History</h3>
-        <a href="{% url 'core:medical_history_create' %}" class="btn btn-primary"><i class="bi bi-plus"></i> Add Record</a>
+        <a href="{% url 'medical_history:create' %}" class="btn btn-primary"><i class="bi bi-plus"></i> Add Record</a>
     </div>
     <div class="card shadow-sm">
         <ul class="list-group list-group-flush">
@@ -15,7 +15,7 @@
                     <br><small class="text-muted">Diagnosed: {{ h.diagnosed_date }}</small>
                     {% if h.notes %}<p class="mb-0 mt-1">{{ h.notes }}</p>{% endif %}
                 </div>
-                <a href="{% url 'core:medical_history_delete' h.pk %}" class="btn btn-sm btn-outline-danger"
+                <a href="{% url 'medical_history:delete' h.pk %}" class="btn btn-sm btn-outline-danger"
                    onclick="return confirm('Delete this record?')"><i class="bi bi-trash"></i></a>
             </li>
             {% empty %}

@@ -11,7 +11,7 @@
                     <h6 class="text-primary">Dr. {{ p.appointment.doctor.user.get_full_name }}</h6>
                     <p class="mb-1"><small class="text-muted">{{ p.appointment.appointment_date }}</small></p>
                     <p class="mb-2"><strong>Diagnosis:</strong> {{ p.diagnosis|truncatechars:80 }}</p>
-                    <a href="{% url 'core:view' p.pk %}" class="btn btn-primary btn-sm">View Full</a>
+                    <a href="{% url 'prescriptions:view' p.pk %}" class="btn btn-primary btn-sm">View Full</a>
                 </div>
             </div>
         </div>

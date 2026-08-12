@@ -6,9 +6,7 @@ from .models import User
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
-    """
-    Custom admin configuration for the MediConnect User model.
-    """
+    """Custom admin configuration for the MediConnect User model."""
 
     list_display = (
         'username',

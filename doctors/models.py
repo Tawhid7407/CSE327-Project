@@ -27,6 +27,7 @@ class DoctorProfile(models.Model):
     @property
     def total_reviews(self):
         return self.reviews.count()
+    
 
 
 class Availability(models.Model):

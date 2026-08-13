@@ -9,6 +9,8 @@ class DoctorProfileAdmin(admin.ModelAdmin):
     search_fields = ('user__username', 'user__first_name', 'specialization')
 
 
+
+
 @admin.register(Availability)
 class AvailabilityAdmin(admin.ModelAdmin):
     list_display = ('doctor', 'day', 'start_time', 'end_time')

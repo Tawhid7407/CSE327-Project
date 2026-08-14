@@ -3,6 +3,8 @@ Django settings for mediconnect project.
 """
 from pathlib import Path
 
+from . import py314_compat  # noqa: F401  (Django 4.2 / Python 3.14 test-client fix)
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-mediconnect-development-key-change-in-production-xxxx'

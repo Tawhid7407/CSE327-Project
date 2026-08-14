@@ -16,7 +16,6 @@ class DoctorProfile(models.Model):
     def __str__(self):
         return f"Dr. {self.user.get_full_name() or self.user.username}"
 
-
     @property
     def average_rating(self):
         reviews = self.reviews.all()
@@ -28,7 +27,6 @@ class DoctorProfile(models.Model):
     @property
     def total_reviews(self):
         return self.reviews.count()
-    
 
 
 class Availability(models.Model):

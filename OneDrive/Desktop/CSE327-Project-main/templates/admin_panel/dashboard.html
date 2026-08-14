@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<div class="container py-4">
+    <h3 class="mb-4"><i class="bi bi-speedometer2"></i> Admin Dashboard</h3>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center border-primary">
+                <div class="card-body">
+                    <i class="bi bi-people text-primary" style="font-size:2rem;"></i>
+                    <h3 class="mt-2">{{ total_users }}</h3>
+                    <p class="text-muted mb-0">Total Users</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center border-success">
+                <div class="card-body">
+                    <i class="bi bi-person-badge text-success" style="font-size:2rem;"></i>
+                    <h3 class="mt-2">{{ approved_doctors }}</h3>
+                    <p class="text-muted mb-0">Approved Doctors</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center border-warning">
+                <div class="card-body">
+                    <i class="bi bi-person-exclamation text-warning" style="font-size:2rem;"></i>
+                    <h3 class="mt-2">{{ pending_doctors }}</h3>
+                    <p class="text-muted mb-0">Pending Doctors</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center border-info">
+                <div class="card-body">
+                    <i class="bi bi-heart-pulse text-info" style="font-size:2rem;"></i>
+                    <h3 class="mt-2">{{ total_patients }}</h3>
+                    <p class="text-muted mb-0">Patients</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center border-secondary">
+                <div class="card-body">
+                    <i class="bi bi-hospital text-secondary" style="font-size:2rem;"></i>
+                    <h3 class="mt-2">{{ total_departments }}</h3>
+                    <p class="text-muted mb-0">Departments</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center border-dark">
+                <div class="card-body">
+                    <i class="bi bi-calendar-event text-dark" style="font-size:2rem;"></i>
+                    <h3 class="mt-2">{{ total_appointments }}</h3>
+                    <p class="text-muted mb-0">Appointments</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center border-warning">
+                <div class="card-body">
+                    <i class="bi bi-hourglass text-warning" style="font-size:2rem;"></i>
+                    <h3 class="mt-2">{{ pending_appointments }}</h3>
+                    <p class="text-muted mb-0">Pending Appts</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center border-info">
+                <div class="card-body">
+                    <i class="bi bi-envelope text-info" style="font-size:2rem;"></i>
+                    <h3 class="mt-2">{{ total_feedback }}</h3>
+                    <p class="text-muted mb-0">Feedback Messages</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick actions -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-3"><a href="{% url 'reports:doctor_management' %}?status=pending" class="btn btn-warning w-100 py-3"><i class="bi bi-person-exclamation"></i> Approve Doctors ({{ pending_doctors }})</a></div>
+        <div class="col-md-3"><a href="{% url 'departments:list' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-hospital"></i> Departments</a></div>
+        <div class="col-md-3"><a href="{% url 'appointments:all' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-calendar"></i> All Appointments</a></div>
+        <div class="col-md-3"><a href="{% url 'reports:reports' %}" class="btn btn-outline-primary w-100 py-3"><i class="bi bi-graph-up"></i> Reports</a></div>
+        <div class="col-md-3"><a href="{% url 'reports:doctor_management' %}" class="btn btn-outline-secondary w-100 py-3"><i class="bi bi-person-badge"></i> Doctors</a></div>
+        <div class="col-md-3"><a href="{% url 'reports:patient_management' %}" class="btn btn-outline-secondary w-100 py-3"><i class="bi bi-people"></i> Patients</a></div>
+        <div class="col-md-3"><a href="{% url 'feedback:list' %}" class="btn btn-outline-secondary w-100 py-3"><i class="bi bi-envelope"></i> Feedback</a></div>
+        <div class="col-md-3"><a href="/admin/" class="btn btn-outline-dark w-100 py-3"><i class="bi bi-gear"></i> Django Admin</a></div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-md-7">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white"><strong>Recent Appointments</strong></div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0 small">
+                        <thead class="table-light">
+                            <tr><th>Patient</th><th>Doctor</th><th>Date</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                            {% for a in recent_appointments %}
+                            <tr>
+                                <td>{{ a.patient.user.get_full_name }}</td>
+                                <td>Dr. {{ a.doctor.user.get_full_name }}</td>
+                                <td>{{ a.appointment_date }}</td>
+                                <td><span class="badge bg-{{ a.status_badge }}">{{ a.get_status_display }}</span></td>
+                            </tr>
+                            {% empty %}
+                            <tr><td colspan="4" class="text-center text-muted">No data.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white"><strong>Recent Feedback</strong></div>
+                <ul class="list-group list-group-flush">
+                    {% for f in recent_feedback %}
+                    <li class="list-group-item small">
+                        <strong>{{ f.name }}</strong>: {{ f.subject|truncatechars:40 }}
+                        <br><small class="text-muted">{{ f.created_at|timesince }} ago</small>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item text-center text-muted small">No feedback.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

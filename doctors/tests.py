@@ -1,6 +1,7 @@
 """
-Unit tests for the doctors app: DoctorProfile's average_rating/total_reviews
-properties and the public doctor_list/doctor_detail views.
+Unit tests for the doctors app: 
+
+
 """
 from django.test import TestCase
 from django.urls import reverse

@@ -88,6 +88,16 @@ Visit: **http://127.0.0.1:8000/**
 - Database: SQLite (default)
 - Auth: Django built-in (email-based password reset)
 
+## 🧪 Running Tests
+
+Unit tests use Django's built-in test framework (`django.test.TestCase`,
+built on Python's `unittest`) — no extra install needed.
+
+```bash
+python manage.py test            # run the whole suite
+python manage.py test reviews    # run one app's tests only
+```
+
 ## 📧 Email Configuration (Optional)
 
 For password reset via email, edit `mediconnect/settings.py`:

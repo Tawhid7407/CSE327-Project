@@ -4,9 +4,11 @@ from .models import DoctorProfile, Availability
 
 class DoctorProfileForm(forms.ModelForm):
     class Meta:
+
         model = DoctorProfile
         fields = ('department', 'specialization', 'qualification', 'experience_years', 'consultation_fee', 'bio', 'is_available')
         widgets = {
+
             'department': forms.Select(attrs={'class': 'form-select'}),
             'specialization': forms.TextInput(attrs={'class': 'form-control'}),
             'qualification': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'MBBS, MD, etc.'}),
@@ -19,6 +21,7 @@ class DoctorProfileForm(forms.ModelForm):
 
 class AvailabilityForm(forms.ModelForm):
     class Meta:
+
         model = Availability
         fields = ('day', 'start_time', 'end_time')
         widgets = {
@@ -28,6 +31,7 @@ class AvailabilityForm(forms.ModelForm):
         }
 
     def clean(self):
+        
         cleaned = super().clean()
         start = cleaned.get('start_time')
         end = cleaned.get('end_time')

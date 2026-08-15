@@ -13,8 +13,12 @@ class DoctorProfile(models.Model):
     bio = models.TextField(blank=True)
     is_available = models.BooleanField(default=True)
 
+
+
     def __str__(self):
         return f"Dr. {self.user.get_full_name() or self.user.username}"
+
+
 
 
     @property
@@ -24,6 +28,8 @@ class DoctorProfile(models.Model):
             return 0
         total = sum(r.rating for r in reviews)
         return round(total / reviews.count(), 1)
+
+
 
     @property
     def total_reviews(self):
@@ -45,6 +51,8 @@ class Availability(models.Model):
     class Meta:
         unique_together = ('doctor', 'day', 'start_time')
         ordering = ['day', 'start_time']
+
+
 
     def __str__(self):
         return f"{self.doctor} - {self.get_day_display()} {self.start_time}-{self.end_time}"

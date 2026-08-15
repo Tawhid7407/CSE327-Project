@@ -8,6 +8,8 @@ from appointments.models import Appointment
 from reviews.models import Review
 
 
+
+
 @doctor_required
 def dashboard(request):
     doctor = request.user.doctor_profile
@@ -25,6 +27,8 @@ def dashboard(request):
     return render(request, 'doctor/dashboard.html', context)
 
 
+
+
 @doctor_required
 def edit_profile(request):
     doctor = request.user.doctor_profile
@@ -37,6 +41,8 @@ def edit_profile(request):
     else:
         form = DoctorProfileForm(instance=doctor)
     return render(request, 'doctor/edit_profile.html', {'form': form})
+
+
 
 
 @doctor_required
@@ -67,11 +73,15 @@ def availability_delete(request, pk):
     return redirect('doctors:availability')
 
 
+
+
 @doctor_required
 def my_reviews(request):
     doctor = request.user.doctor_profile
     reviews = doctor.reviews.select_related('patient__user').order_by('-created_at')
     return render(request, 'doctor/reviews.html', {'reviews': reviews, 'doctor': doctor})
+
+
 
 
 # Public: browse doctors (patients & guests)
@@ -96,6 +106,8 @@ def doctor_list(request):
         'query': query,
         'selected_dept': dept_id,
     })
+
+
 
 
 def doctor_detail(request, pk):

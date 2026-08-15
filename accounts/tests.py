@@ -8,10 +8,54 @@ from django.http import HttpResponse
 from django.test import RequestFactory, TestCase
 from django.urls import reverse
 
-from mediconnect.test_helpers import make_admin, make_doctor, make_patient
+
 from .decorators import admin_required, doctor_required, patient_required
 from .forms import RegisterForm
 from .models import User
+from departments.models import Department
+from doctors.models import DoctorProfile
+from patients.models import PatientProfile
+
+
+def make_patient(username="patient1", password="test-pass-123", **extra):
+    user = User.objects.create_user(
+        username=username,
+        password=password,
+        role="patient",
+        **extra,
+    )
+    PatientProfile.objects.get_or_create(user=user)
+    return PatientProfile.objects.get(user=user)
+
+
+def make_doctor(
+    username="doctor1",
+    password="test-pass-123",
+    approved=True,
+    department=None,
+    **extra,
+):
+    user = User.objects.create_user(
+        username=username,
+        password=password,
+        role="doctor",
+        is_approved=approved,
+        **extra,
+    )
+    DoctorProfile.objects.get_or_create(
+        user=user,
+        defaults={"department": department},
+    )
+    return DoctorProfile.objects.get(user=user)
+
+
+def make_admin(username="admin1", password="test-pass-123", **extra):
+    return User.objects.create_user(
+        username=username,
+        password=password,
+        role="admin",
+        **extra,
+    )
 
 
 class UserRoleHelperTests(TestCase):

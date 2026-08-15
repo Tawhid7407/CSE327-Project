@@ -1,7 +1,5 @@
 """
-Unit tests for the doctors app: 
-
-
+Unit tests for the doctors app
 """
 from django.test import TestCase
 from django.urls import reverse

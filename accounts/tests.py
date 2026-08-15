@@ -151,3 +151,14 @@ class RoleRedirectViewTests(TestCase):
     def test_patient_redirects_to_patient_dashboard(self):
         response = self._login_and_hit(make_patient().user)
         self.assertRedirects(response, reverse('patients:dashboard'))
+    def test_superuser_redirects_to_admin_dashboard(self):
+        user = make_patient(username='superuser').user
+        user.is_superuser = True
+        user.save()
+
+        response = self._login_and_hit(user)
+
+        self.assertRedirects(
+            response,
+            reverse('reports:admin_dashboard'),
+        )

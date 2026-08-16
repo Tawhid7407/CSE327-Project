@@ -22,7 +22,7 @@ class PatientDashboardViewTests(TestCase):
         response = self.client.get(reverse('patients:dashboard'))
         self.assertNotEqual(response.status_code, 200)
 
-    def test_patient_can_view_own_dashboard(self):
+    def test_patient_can_view_own_dashboard(self):   //uploded new file
         patient = make_patient()
         self.client.login(username=patient.user.username, password='test-pass-123')
         response = self.client.get(reverse('patients:dashboard'))

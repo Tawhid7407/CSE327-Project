@@ -7,3 +7,6 @@ class PatientProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'age', 'gender', 'blood_group')
     list_filter = ('gender', 'blood_group')
     search_fields = ('user__username', 'user__first_name')
+
+
+/new

@@ -41,3 +41,5 @@ def make_admin(username="admin1", password=DEFAULT_PASSWORD, **extra):
     return User.objects.create_user(
         username=username, password=password, role="admin", **extra
     )
+///
+

@@ -167,3 +167,4 @@ class AppointmentActionTests(TestCase):
         self.client.post(url)
         self.appt.refresh_from_db()
         self.assertEqual(self.appt.status, 'pending')  # unchanged
+

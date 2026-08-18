@@ -35,3 +35,4 @@ class Appointment(models.Model):
             'completed': 'success',
             'cancelled': 'secondary',
         }.get(self.status, 'secondary')
+

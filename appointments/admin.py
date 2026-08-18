@@ -8,3 +8,4 @@ class AppointmentAdmin(admin.ModelAdmin):
     list_filter = ('status', 'appointment_date')
     search_fields = ('patient__user__username', 'doctor__user__username')
     date_hierarchy = 'appointment_date'
+

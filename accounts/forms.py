@@ -62,3 +62,8 @@ class UserProfileForm(BootstrapFormMixin, forms.ModelForm):
 
 class CustomPasswordChangeForm(BootstrapFormMixin, PasswordChangeForm):
     pass
+
+
+
+
+

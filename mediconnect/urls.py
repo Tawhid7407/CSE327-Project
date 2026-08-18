@@ -1,25 +1,30 @@
-"""mediconnect URL Configuration"""
-from django.contrib import admin
-from django.urls import path, include
+"""
+MediConnect URL Configuration.
+"""
+
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include, path
+
 
 urlpatterns = [
+    # Django admin
     path('admin/', admin.site.urls),
-    path('', include('core.urls')),
+
+    # Authentication and account management
     path('accounts/', include('accounts.urls')),
-    path('patient/', include('patients.urls')),
-    path('doctor/', include('doctors.urls')),
-    path('appointments/', include('appointments.urls')),
-    path('prescriptions/', include('prescriptions.urls')),
-    path('reviews/', include('reviews.urls')),
-    path('notifications/', include('notifications.urls')),
-    path('feedback/', include('feedback.urls')),
-    path('admin-panel/', include('reports.urls')),
-    path('departments/', include('departments.urls')),
-    path('medical-history/', include('medical_history.urls')),
 ]
 
+
+# Serve media and static files during development
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT,
+    )
+
+    urlpatterns += static(
+        settings.STATIC_URL,
+        document_root=settings.STATIC_ROOT,
+    )

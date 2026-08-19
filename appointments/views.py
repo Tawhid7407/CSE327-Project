@@ -84,3 +84,4 @@ def appointment_action(request, pk, action):
 def all_appointments(request):
     appointments = Appointment.objects.all().select_related('patient__user', 'doctor__user')
     return render(request, 'admin_panel/appointments.html', {'appointments': appointments})
+    

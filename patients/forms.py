@@ -10,5 +10,5 @@ class PatientProfileForm(forms.ModelForm):
             'age': forms.NumberInput(attrs={'class': 'form-control'}),
             'gender': forms.Select(attrs={'class': 'form-select'}),
             'blood_group': forms.Select(attrs={'class': 'form-select'}),
-            'address': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'address': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}), //
         }

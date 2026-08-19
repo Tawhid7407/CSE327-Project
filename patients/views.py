@@ -33,4 +33,4 @@ def edit_profile(request):
             return redirect('patients:dashboard')
     else:
         form = PatientProfileForm(instance=patient)
-    return render(request, 'patient/edit_profile.html', {'form': form})
+    return render(request, 'patient/edit_profile.html', {'form': form}) //profile

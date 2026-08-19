@@ -19,3 +19,4 @@ class AppointmentForm(forms.ModelForm):
         if date and date < timezone.localdate():
             raise forms.ValidationError("Cannot book appointment in the past.")
         return date
+
